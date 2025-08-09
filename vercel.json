@@ -1,0 +1,9 @@
+{
+  "projectSettings": {
+    "framework": "nextjs",
+    "rootDirectory": "apps/frontend",
+    "buildCommand": "npm run build --workspace=frontend",
+    "installCommand": "npm install",
+    "outputDirectory": ".next"
+  }
+}
