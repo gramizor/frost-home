@@ -32,8 +32,8 @@ export function Header() {
           href={item.href}
           className={
             isActive
-              ? 'rounded-full bg-btnActive px-6 py-3 text-primary transition'
-              : 'rounded-full bg-headerDefault px-6 py-3 text-white transition hover:opacity-90'
+              ? 'rounded-full bg-btnActive px-6 py-3 text-white transition font-cormorant'
+              : 'rounded-full px-6 py-3 text-white transition hover:opacity-90 font-cormorant'
           }
         >
           {item.label}
@@ -43,10 +43,10 @@ export function Header() {
   }
 
   return (
-    <header className="w-full">
-      <div className="mx-auto max-w-6xl px-6 py-4">
+    <header className="fixed left-0 right-0 top-[30px] z-50 w-full">
+      <div className="mx-auto max-w-6xl">
         <nav className="w-full">
-          <ul className="flex items-center justify-between rounded-full bg-headerDefault px-2 py-2">
+          <ul className="flex items-center justify-between rounded-full bg-headerDefault">
             {links}
           </ul>
         </nav>

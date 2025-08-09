@@ -1,5 +1,6 @@
 import './globals.css'
 import { Header } from '@/components/header'
+import { cormorant, inter } from '@/app/fonts'
 
 export default function RootLayout({
   children
@@ -8,7 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className="bg-background text-black">
+      <body
+        className={`min-h-dvh bg-background text-black ${cormorant.variable} ${inter.variable} relative`}
+      >
         <Header />
         {children}
       </body>
