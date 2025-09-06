@@ -3,13 +3,14 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import * as React from 'react'
+import clsx from 'clsx'
 
 export interface NavItem {
   href: string
   label: string
 }
 
-export function Header() {
+export const Header = () => {
   const pathname = usePathname()
 
   const items: NavItem[] = [
@@ -27,14 +28,15 @@ export function Header() {
     const isActive = pathname === item.href
 
     links.push(
-      <li key={item.href} className="flex">
+      <li key={item.href} className="flex flex-1 w-full">
         <Link
           href={item.href}
-          className={
-            isActive
-              ? 'rounded-full bg-btnActive px-6 py-3 text-white transition font-cormorant'
-              : 'rounded-full px-6 py-3 text-white transition hover:opacity-90 font-cormorant'
-          }
+          className={clsx(
+            'flex w-full text-center justify-center rounded-full text-white transition font-cormorant hover:bg-headerBtnHover cursor-pointer text-[24px] text-nowrap p-[7px]',
+            isActive &&
+              'bg-headerBtnActive shadow-[3px_4px_8px_rgba(0,0,0,0.25)] hover:shadow-none outline outline-1 outline-[#8B8C52]/40 hover:outline-none'
+          )}
+          // TODO: сделать прессед эффект
         >
           {item.label}
         </Link>
@@ -43,10 +45,10 @@ export function Header() {
   }
 
   return (
-    <header className="fixed left-0 right-0 top-[30px] z-50 w-full">
+    <header className="fixed left-0 right-0 top-[30px] z-50 mx-[65px]">
       <div className="mx-auto max-w-6xl">
         <nav className="w-full">
-          <ul className="flex items-center justify-between rounded-full bg-headerDefault">
+          <ul className="flex items-center justify-between rounded-full bg-headerBg shadow-[0_6px_15px_rgba(0,0,0,0.25)] p-[5px] gap-[5px]">
             {links}
           </ul>
         </nav>
