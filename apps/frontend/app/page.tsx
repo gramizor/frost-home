@@ -7,7 +7,7 @@ import firstSection from '@/public/first-section.png'
 import secondSection from '@/public/second-section.png'
 import thirdSection from '@/public/third-section.png'
 
-export default function Home() {
+const Home = () => {
   const blocks: JSX.Element[] = []
 
   for (const section of mainPageBlocksData) {
@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <Hero backgroundSrc={heroImage.src} />
       <div className="flex h-screen items-center">
-        <div className="mx-[120px] w-full text-center text-browny font-cormorant text-[50px] italic font-extralight border-y-4 border-primaryRed py-[25px] px-[60px]">
+        <div className="mx-[120px] w-full text-center text-browny font-cormorant text-[50px] italic font-extralight border-y-4 border-accentRed py-[25px] px-[60px]">
           Путешествуя по всему миру, мы по частицам собрали все, что нам нравилось. Вы можете
           прочувствовать эстетику северной Европы в архитектуре и ландшафтном дизайне, на мгновение
           отключившись от городской суеты и позабыв о всех повседневных делах.
@@ -47,3 +47,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home

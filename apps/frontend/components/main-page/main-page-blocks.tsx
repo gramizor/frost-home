@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image'
+import { StaticImageData } from 'next/image'
 import firstSection from '@/public/first-section.png'
 import secondSection from '@/public/second-section.png'
 import thirdSection from '@/public/third-section.png'
@@ -56,7 +56,7 @@ export const MainPageBlocks = (props: SectionElement) => {
         <span className=" font-cormorant text-[68px] text-browny italic font-extralight">
           {title}
         </span>
-        <div className="h-1 bg-primaryRed w-full" />
+        <div className="h-1 bg-accentRed w-full" />
         <span className="font-cormorant text-[36px] font-extralight px-12 whitespace-pre-line text-browny">
           {subtitle}
         </span>

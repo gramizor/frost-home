@@ -15,7 +15,7 @@ export const Header = () => {
 
   const items: NavItem[] = [
     { href: '/', label: 'Усадьба Морозовых' },
-    { href: '/rooms', label: 'Размещение' },
+    { href: '/accommodation', label: 'Размещение' },
     { href: '/services', label: 'Услуги' },
     { href: '/activities', label: 'Чем заняться' },
     { href: '/reviews', label: 'Отзывы' },
@@ -32,7 +32,7 @@ export const Header = () => {
         <Link
           href={item.href}
           className={clsx(
-            'flex w-full text-center justify-center rounded-full text-white transition font-cormorant hover:bg-headerBtnHover cursor-pointer text-[24px] text-nowrap p-[7px]',
+            'flex w-full justify-center text-center rounded-full text-white font-cormorant cursor-pointer text-[24px] whitespace-nowrap p-[7px] hover:bg-headerBtnHover transition-[transform,box-shadow,background-color,outline] duration-300 ease-out will-change-transform active:translate-y-[1px] active:scale-[0.9] active:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B8C52]/40',
             isActive &&
               'bg-headerBtnActive shadow-[3px_4px_8px_rgba(0,0,0,0.25)] hover:shadow-none outline outline-1 outline-[#8B8C52]/40 hover:outline-none'
           )}

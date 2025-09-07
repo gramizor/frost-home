@@ -19,7 +19,7 @@ export function Hero({ backgroundSrc }: HeroProps) {
       />
       {/* Контент */}
       <div
-        className="relative flex h-full flex-col items-center text-center px-4 text-primaryRed w-fit mx-auto"
+        className="relative flex h-full flex-col items-center text-center px-4 text-accentRed w-fit mx-auto"
         style={{ marginTop: 'calc(50vh - 200px)' }}
       >
         <h1

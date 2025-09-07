@@ -17,7 +17,12 @@ module.exports = {
         headerBtnHover: 'rgba(133, 135, 62, 0.9)',
         background: '#DCD6C9',
         backgroundHover: '#c9c3b7',
-        primaryRed: '#5C2A2A',
+        cardWhite: '#F6F4EE',
+        cardWhiteHover: '#eceae4',
+        accentRed: '#5C2A2A',
+        primary: '#6A7D53',
+        primaryHover: '#576744',
+        secondary: '#',
         browny: '#5C4432'
       }
     },
