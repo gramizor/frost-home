@@ -5,6 +5,8 @@ import React, { JSX } from 'react'
 import { accommodationData } from '@/app/accommodation/mock-data'
 import { ConditionsView } from '@/app/accommodation/conditions-components'
 import { Popover, PopoverButton, PopoverPanel, Portal } from '@headlessui/react'
+import Link from 'next/link'
+import { makeWAUrl } from '@/helpers/create-wa-url'
 
 interface PageLockProps {
   active: boolean
@@ -127,12 +129,20 @@ const AccommodationPage = (): JSX.Element => {
           </Popover>
 
           <div className="flex flex-row gap-[15px]">
-            <button className="flex items-center justify-center px-[30px] py-[15px] bg-cardWhite shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgba(0,0,0,0.30)] hover:bg-cardWhiteHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-[28px] font-cormorant rounded-[5px] ring-inset ring-2 ring-primary text-primary font-semibold text-nowrap h-fit">
+            <Link
+              href={`/accommodation/${item.slug}`}
+              className="flex items-center justify-center px-[30px] py-[15px] bg-cardWhite shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgba(0,0,0,0.30)] hover:bg-cardWhiteHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-[28px] font-cormorant rounded-[5px] ring-inset ring-2 ring-primary text-primary font-semibold text-nowrap h-fit"
+            >
               Подробнее о доме
-            </button>
-            <button className="flex items-center justify-center px-[30px] py-[15px] bg-primary shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgба(0,0,0,0.30)] hover:bg-primaryHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-[28px] font-cormorant rounded-[5px] text-cardWhite font-semibold text-nowrap h-fit">
+            </Link>
+            <a
+              href={makeWAUrl(item.title)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-[30px] py-[15px] bg-primary shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgба(0,0,0,0.30)] hover:bg-primaryHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-[28px] font-cormorant rounded-[5px] text-cardWhite font-semibold text-nowrap h-fit w-fit"
+            >
               Забронировать дом
-            </button>
+            </a>
 
             <span className="font-cormorant text-[20px] text-primary font-semibold">
               Дома укрыты среди деревьев и невидимы друг для друга. Здесь легко поверить, что вы —

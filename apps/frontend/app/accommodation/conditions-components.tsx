@@ -1,20 +1,7 @@
 'use client'
 
 import React, { JSX } from 'react'
-
-export interface ConditionsSection {
-  title: string
-  items: readonly string[]
-}
-
-export interface ConditionsContent {
-  sections: readonly ConditionsSection[]
-}
-
-interface ConditionsViewProps {
-  content: ConditionsContent
-  className?: string
-}
+import { ConditionsViewProps } from '@/app/accommodation/types'
 
 export const ConditionsView = ({
   content,

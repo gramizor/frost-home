@@ -2,23 +2,12 @@ import { StaticImageData } from 'next/image'
 import accommodationScandi from '@/public/accommodation-scandi.png'
 import accommodationChalet from '@/public/accommodation-chalet.png'
 import accommodationSpa from '@/public/accommodation-spa.png'
-import { ConditionsContent } from '@/app/accommodation/conditions-components'
-
-export interface AccommodationInfo {
-  number: number
-  title: string
-  description: string
-  priceWeekdays: string
-  priceWeekends: string
-  banners: string[]
-  imageSrc: StaticImageData
-  imageAlt: string
-  conditions: ConditionsContent
-}
+import { AccommodationInfo } from '@/app/accommodation/types'
 
 export const accommodationData: AccommodationInfo[] = [
   {
     number: 1,
+    slug: 'chalet',
     title: 'Chalet-дом у леса',
     description:
       'Двухэтажный дом среди сосен, где панорамные окна впускают в каждый уголок зелень и свет. Застеклённая терраса утопает в лесной тишине, а внутри — камин, три спальни, винтажная ванна с видом, каждый этаж оборудован своей кухней и столовой, где приятно готовить для близких.\n' +
@@ -58,6 +47,7 @@ export const accommodationData: AccommodationInfo[] = [
   },
   {
     number: 2,
+    slug: 'spa',
     title: 'SPA-дом у реки',
     description:
       'Уникальный дизайнерский дом с семиметровыми потолками, панорамными окнами, зимним садом и настоящей spa-зоной. Идеален для романтического отдыха, ретрита, мастер-класса, девичника или вечеринки — где вас никто не потревожит.\n' +
@@ -87,6 +77,7 @@ export const accommodationData: AccommodationInfo[] = [
   },
   {
     number: 3,
+    slug: 'scandi',
     title: 'Scandi-дом',
     description:
       'Уютный дом в стиле арт-объекта с дизайнерским интерьером, кухней и климат-контролем. Идеальное место для тех, кто хочет вырваться из города, отдохнуть в сосновом бору, сделать красивые снимки, насладиться тишиной и природой.\n' +

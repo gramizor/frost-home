@@ -35,7 +35,7 @@ const Home = () => {
       </div>
       <div className="mx-auto mt-16 ">
         <ImageCarousel
-          className="h-[580px]"
+          className="h-[690px]"
           images={[
             { src: firstSection, alt: 'Фото 1' },
             { src: secondSection, alt: 'Фото 2' },
