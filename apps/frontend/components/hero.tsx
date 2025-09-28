@@ -28,13 +28,13 @@ export function Hero({ backgroundSrc }: HeroProps) {
         >
           FROST HOME
         </h1>
-        <p className="text-[40px] font-cormorant -mt-12">Уникальные дома в Усадьбе Морозовых</p>
+        <p className="text-40 font-cormorant -mt-12">Уникальные дома в Усадьбе Морозовых</p>
       </div>
       <a
         href="https://wa.me/79169074447?text=Здравствуйте,%20хочу%20забронировать%20номер"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute bottom-0 left-0 right-0 h-100 bg-[#937878] flex items-center justify-center text-white text-[40px] hover:bg-[#886F6F] select-none cursor-pointer"
+        className="absolute bottom-0 left-0 right-0 h-100 bg-[#937878] flex items-center justify-center text-white text-40 hover:bg-[#886F6F] select-none cursor-pointer"
       >
         <span className="font-cormorant">Забронировать дом</span>
         <Image src={arrowRight} alt="arrow right" />

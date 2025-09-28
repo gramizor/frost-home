@@ -45,7 +45,7 @@ const AccommodationPage = (): JSX.Element => {
       return (
         <div
           key={`${item.number}-${text}`}
-          className="bg-background text-primary font-cormorant font-bold text-[25px] px-[15px] py-[15px] rounded-full ring-inset ring-2 ring-primary shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)]"
+          className="bg-background text-primary font-cormorant font-bold text-24 px-[15px] py-[15px] rounded-full ring-inset ring-2 ring-primary shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)]"
         >
           {text}
         </div>
@@ -71,17 +71,17 @@ const AccommodationPage = (): JSX.Element => {
           <div className="flex flex-row flex-wrap gap-[25px]">{chips}</div>
 
           <div className="flex flex-row gap-[25px] items-center">
-            <div className="px-[20px] py-[5px] font-cormorant text-primary font-bold text-[50px] rounded-full ring-inset ring-2 ring-primary w-fit shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] bg-cardWhite">
+            <div className="px-[20px] py-[5px] font-cormorant text-primary font-bold text-50 rounded-full ring-inset ring-2 ring-primary w-fit shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] bg-cardWhite">
               Дом {item.number}
             </div>
-            <div className="font-cormorant text-primary font-bold text-[50px]">{item.title}</div>
+            <div className="font-cormorant text-primary font-bold text-50">{item.title}</div>
           </div>
 
-          <p className="whitespace-pre-line text-browny/90 my-auto text-[28px] font-normal font-cormorant">
+          <p className="whitespace-pre-line text-browny/90 my-auto text-28 font-normal font-cormorant">
             {item.description}
           </p>
 
-          <div className="text-primary text-[35px] font-cormorant font-semibold">
+          <div className="text-primary text-36 font-cormorant font-semibold">
             <div>ПН-ЧТ {item.priceWeekdays}</div>
             <div>ПТ-ВС {item.priceWeekends}</div>
           </div>
@@ -92,7 +92,7 @@ const AccommodationPage = (): JSX.Element => {
                 <>
                   <PageLock active={open} />
 
-                  <PopoverButton className="underline w-fit text-browny font-cormorant text-[24px] focus:outline-none">
+                  <PopoverButton className="underline w-fit text-browny font-cormorant text-24 focus:outline-none">
                     Дополнительные условия
                   </PopoverButton>
 
@@ -111,7 +111,7 @@ const AccommodationPage = (): JSX.Element => {
                       className="z-[1000] relative max-w-[720px] w-[min(720px,calc(100vw-32px))] bg-background rounded-[30px] ring-inset ring-2 ring-primary shadow-[0_10px_40px_rgba(0,0,0,0.35)] p-[24px] [--anchor-gap:12px]"
                     >
                       <button
-                        className="absolute right-[12px] top-[12px] text-primary text-[28px] leading-none"
+                        className="absolute right-[12px] top-[12px] text-primary text-28 leading-none"
                         onClick={(): void => {
                           close()
                         }}
@@ -131,7 +131,7 @@ const AccommodationPage = (): JSX.Element => {
           <div className="flex flex-row gap-[15px]">
             <Link
               href={`/accommodation/${item.slug}`}
-              className="flex items-center justify-center px-[30px] py-[15px] bg-cardWhite shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgba(0,0,0,0.30)] hover:bg-cardWhiteHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-[28px] font-cormorant rounded-[5px] ring-inset ring-2 ring-primary text-primary font-semibold text-nowrap h-fit"
+              className="flex items-center justify-center px-[30px] py-[15px] bg-cardWhite shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgba(0,0,0,0.30)] hover:bg-cardWhiteHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-28 font-cormorant rounded-[5px] ring-inset ring-2 ring-primary text-primary font-semibold text-nowrap h-fit"
             >
               Подробнее о доме
             </Link>
@@ -139,15 +139,10 @@ const AccommodationPage = (): JSX.Element => {
               href={makeWAUrl(item.title)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center px-[30px] py-[15px] bg-primary shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgба(0,0,0,0.30)] hover:bg-primaryHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-[28px] font-cormorant rounded-[5px] text-cardWhite font-semibold text-nowrap h-fit w-fit"
+              className="flex items-center justify-center px-[30px] py-[15px] bg-primary shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[6px_8px_18px_0_rgба(0,0,0,0.30)] hover:bg-primaryHover active:shadow-[2px_3px_6px_0_rgба(0,0,0,0.25)] transition-[box-shadow,background-color,transform] duration-300 ease-in-out text-28 font-cormorant rounded-[5px] text-cardWhite font-semibold text-nowrap h-fit w-fit"
             >
               Забронировать дом
             </a>
-
-            <span className="font-cormorant text-[20px] text-primary font-semibold">
-              Дома укрыты среди деревьев и невидимы друг для друга. Здесь легко поверить, что вы —
-              единственные, кто знает о существовании этого тихого уголка.
-            </span>
           </div>
         </div>
       </section>

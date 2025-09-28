@@ -26,7 +26,7 @@ const Home = () => {
     <>
       <Hero backgroundSrc={heroImage.src} />
       <div className="flex h-screen items-center">
-        <div className="mx-[120px] w-full text-center text-browny font-cormorant text-[50px] italic font-extralight border-y-4 border-accentRed py-[25px] px-[60px]">
+        <div className="mx-[120px] w-full text-center text-browny font-cormorant text-50 italic font-extralight border-y-4 border-accentRed py-[25px] px-[60px]">
           Путешествуя по всему миру, мы по частицам собрали все, что нам нравилось. Вы можете
           прочувствовать эстетику северной Европы в архитектуре и ландшафтном дизайне, на мгновение
           отключившись от городской суеты и позабыв о всех повседневных делах.

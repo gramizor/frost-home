@@ -5,7 +5,7 @@ import { ConditionsViewProps } from '@/app/accommodation/types'
 
 export const ConditionsView = ({
   content,
-  className = 'font-cormorant text-browny text-[24px] leading-[1.25]'
+  className = 'font-cormorant text-browny text-24'
 }: ConditionsViewProps): JSX.Element => {
   const blocks: JSX.Element[] = content.sections.map((section, sectionIndex): JSX.Element => {
     const lis: JSX.Element[] = section.items.map((text, itemIndex): JSX.Element => {
