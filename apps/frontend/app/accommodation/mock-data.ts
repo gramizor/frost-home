@@ -1,4 +1,3 @@
-import { StaticImageData } from 'next/image'
 import accommodationScandi from '@/public/accommodation-scandi.png'
 import accommodationChalet from '@/public/accommodation-chalet.png'
 import accommodationSpa from '@/public/accommodation-spa.png'

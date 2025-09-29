@@ -1,4 +1,3 @@
-import { StaticImageData } from 'next/image'
 import spaArea from '@/public/services/spa-area.png'
 import font from '@/public/services/font.png'
 import conductingEvents from '@/public/services/conducting-events.png'
