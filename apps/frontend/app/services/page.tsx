@@ -1,9 +1,11 @@
 import { servicesData } from '@/app/services/mock-data'
 import { InfoCard, InfoCardDataType } from '@/components/info-card'
+import {Metadata} from "next";
 
+export const metadata: Metadata = { title: 'Услуги' }
 const ServicesPage = () => {
   return (
-    <div className="pt-[120px] px-[65px] pb-[30px] w-full flex flex-col gap-[70px]">
+    <main className="pt-[120px] px-[65px] pb-[30px] w-full flex flex-col gap-[70px]">
       <span className="text-60 text-browny text-center">
         Особые впечатления, которые сделают отдых незабываемым
       </span>
@@ -29,7 +31,7 @@ const ServicesPage = () => {
             return <InfoCard data={s} key={s.title} />
           })}
       </div>
-    </div>
+    </main>
   )
 }
 

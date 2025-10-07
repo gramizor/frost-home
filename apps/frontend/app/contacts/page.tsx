@@ -1,4 +1,7 @@
 import { IconBrandWhatsapp, IconPhone, IconSend } from '@tabler/icons-react'
+import {Metadata} from "next";
+
+export const metadata: Metadata = { title: 'Контакты' }
 
 const ContactsPage = () => {
   const tel: string = '+7 916 907-44-47'

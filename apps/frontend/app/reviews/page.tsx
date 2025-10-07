@@ -1,4 +1,5 @@
 import { Rating } from '@/components/rating'
+import {Metadata} from "next";
 
 interface reviewsDataType {
   name: string
@@ -287,6 +288,8 @@ const reviewsData: reviewsDataType[] = [
     rating: 5
   }
 ]
+
+export const metadata: Metadata = { title: 'Отзывы' }
 
 const ReviewsPage = () => {
   return (

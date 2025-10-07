@@ -18,7 +18,9 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
   const { images, className, withThumbnail } = props
 
   const [index, setIndex] = useState<number>(0)
-  const length = images.length
+    const length: number = images.length
+      const hasNav: boolean = length > 1
+      const showThumbs: boolean = Boolean(withThumbnail) && hasNav
 
   const prev = useCallback((): void => {
     setIndex(i => {
@@ -41,6 +43,9 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
   }, [length])
 
   useEffect(() => {
+    if (!hasNav) {
+      return
+    }
     const onKey = (e: KeyboardEvent): void => {
       if (e.key === 'ArrowLeft') {
         prev()
@@ -54,11 +59,14 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
     return () => {
       window.removeEventListener('keydown', onKey)
     }
-  }, [next, prev])
+  }, [next, prev, hasNav])
 
   const startX = useRef<number | null>(null)
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>): void => {
+    if (!hasNav) {
+      return
+    }
     startX.current = e.clientX
   }
 
@@ -110,14 +118,14 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
 
   return (
     <div className="relative">
-      {withThumbnail ? (
+      {showThumbs ? (
         <>
           <div
             className={`relative ${className ?? 'h-[560px]'}`}
             onPointerDown={onPointerDown}
             onPointerUp={onPointerUp}
           >
-            <button
+            {hasNav && <button
               type="button"
               aria-label="Предыдущий слайд"
               onClick={prev}
@@ -132,13 +140,13 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </button>}
 
             <div className="relative h-full w-full overflow-hidden rounded-[16px] shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)]">
               {slides}
             </div>
 
-            <button
+            {hasNav && <button
               type="button"
               aria-label="Следующий слайд"
               onClick={next}
@@ -153,11 +161,11 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </button>}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-[10px] mt-[30px] px-[20px] w-[700px] mx-auto">
-            {images.map((img, i) => {
+          {hasNav && <div className="flex flex-wrap items-start content-start justify-center gap-[10px] mt-[30px] w-full mx-auto max-w-[min(100%,40rem)] self-start">
+          {images.map((img, i) => {
               const isActive = i === index
               return (
                 <button
@@ -167,19 +175,19 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
                   onClick={() => {
                     setIndex(i)
                   }}
-                  className={`overflow-hidden rounded-[15px] shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] ring-2 ${isActive ? 'ring-primary' : 'ring-transparent'} hover:ring-primary/70`}
+                  className={`flex-none overflow-hidden rounded-[12px] shadow-[3px_4px_8px_0_rgba(0,0,0,0.25)] ring-2 ${isActive ? 'ring-primary' : 'ring-transparent'} hover:ring-primary/70`}
                 >
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    width={90}
-                    height={90}
-                    className="h-[90px] w-[90px] object-cover"
+                    width={84}
+                    height={84}
+                    className="size-[68px] sm:size-[76px] md:size-[84px] object-cover"
                   />
                 </button>
               )
             })}
-          </div>
+          </div>}
         </>
       ) : (
         <div
@@ -187,43 +195,48 @@ export const ImageCarousel = (props: CarouselProps): JSX.Element => {
           onPointerDown={onPointerDown}
           onPointerUp={onPointerUp}
         >
-          {slides}
+          {!hasNav ? (
+            <Image src={images[0].src} alt={images[0].alt} fill className="object-cover" priority />
+          ) : (
+            <>
+              {slides}
+              <button
+                type="button"
+                aria-label="Предыдущий слайд"
+                onClick={prev}
+                className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-md hover:bg-white focus:outline-none"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M15 6L9 12L15 18"
+                    stroke="black"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
 
-          <button
-            type="button"
-            aria-label="Предыдущий слайд"
-            onClick={prev}
-            className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-md hover:bg-white focus:outline-none"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M15 6L9 12L15 18"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+              <button
+                type="button"
+                aria-label="Следующий слайд"
+                onClick={next}
+                className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-md hover:bg-white focus:outline-none"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M9 6L15 12L9 18"
+                    stroke="black"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
 
-          <button
-            type="button"
-            aria-label="Следующий слайд"
-            onClick={next}
-            className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-md hover:bg-white focus:outline-none"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M9 6L15 12L9 18"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
-          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">{dots}</div>
+              <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">{dots}</div>
+            </>
+          )}
         </div>
       )}
     </div>

@@ -6,7 +6,9 @@ import { ImageCarousel } from '@/components/images/image-carousel'
 import firstSection from '@/public/first-section.png'
 import secondSection from '@/public/second-section.png'
 import thirdSection from '@/public/third-section.png'
+import {Metadata} from "next";
 
+export const metadata: Metadata = { title: 'Frost Home' }
 const Home = () => {
   const blocks: JSX.Element[] = []
 
@@ -23,14 +25,11 @@ const Home = () => {
   }
 
   return (
-    <>
+    <main>
       <Hero backgroundSrc={heroImage.src} />
       <div className="flex h-screen items-center">
-        <div className="mx-[120px] w-full text-center text-browny font-cormorant text-50 italic font-extralight border-y-4 border-accentRed py-[25px] px-[60px]">
-          Путешествуя по всему миру, мы по частицам собрали все, что нам нравилось. Вы можете
-          прочувствовать эстетику северной Европы в архитектуре и ландшафтном дизайне, на мгновение
-          отключившись от городской суеты и позабыв о всех повседневных делах.
-          <br />С этого момента вы попадаете в другой мир.
+        <div className="mx-auto w-full text-center text-browny font-cormorant text-50 italic font-extralight border-y-4 border-accentRed py-[25px] px-[60px]">
+          С этого момента Вы попадаете в другой мир,<br /> на мгновение отключившись от городской суеты и позабыв о всех повседневных делах.
         </div>
       </div>
       <div className="mx-auto mt-16 ">
@@ -44,7 +43,7 @@ const Home = () => {
         />
       </div>
       <div className="mx-auto space-y-[190px]">{blocks}</div>
-    </>
+    </main>
   )
 }
 

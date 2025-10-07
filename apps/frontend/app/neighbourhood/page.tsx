@@ -8,6 +8,7 @@ import iosifoVolotsky from '@/public/neighbourhood/iosifo-volotsky.png'
 import raceway from '@/public/neighbourhood/raceway.png'
 import volokolamskKremlin from '@/public/neighbourhood/volokolamsk-kremlin.png'
 import yaropoletskaya from '@/public/neighbourhood/yaropoletskaya-hpp.png'
+import {Metadata} from "next";
 
 const neighbourhoodData: InfoCardDataType[] = [
   {
@@ -84,9 +85,10 @@ const neighbourhoodData: InfoCardDataType[] = [
   }
 ]
 
+export const metadata: Metadata = { title: 'Окрестности' }
 const NeighbourhoodPage = () => {
   return (
-    <div className="pt-[120px] px-[65px] pb-[30px] w-full flex flex-col gap-[70px]">
+    <main className="pt-[120px] px-[65px] pb-[30px] w-full flex flex-col gap-[70px]">
       <span className="text-60 text-browny text-center">
         Мы собрали для Вас интересные локации, которые находятся рядом с нами
       </span>
@@ -111,9 +113,9 @@ const NeighbourhoodPage = () => {
       </div>
 
       <span className="text-60 text-browny text-center pb-[110px]">
-        Окрестности, что зовут в путь  и наполняют отдых новыми открытиями
+        Окрестности, что зовут в путь и наполняют отдых новыми открытиями
       </span>
-    </div>
+    </main>
   )
 }
 
